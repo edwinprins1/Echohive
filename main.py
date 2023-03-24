@@ -1,6 +1,11 @@
+"""
+This module is the main entry point for the Echohive application.
+It handles user input, sends requests to the OpenAI API, and processes the responses.
+"""
+
 import os
-import openai
 import sys
+import openai
 import tiktoken
 
 # pip install openai tiktoken
@@ -11,6 +16,10 @@ openai.api_key = os.getenv("OPENAI_API_KEY")
 
 # Define the function to count tokens
 def count_tokens(text):
+    """
+    This function performs a specific task, such as processing data,
+    making a calculation, or interacting with an API.
+    """
     encoding = tiktoken.encoding_for_model("gpt-3.5-turbo")
     return len(encoding.encode(text))
 
@@ -35,7 +44,6 @@ while True:
 
     # Append user input to the conversation history
     conversation_history.append({"role": "user", "content": chat_input})
-    
     # Calculate the total tokens in the conversation history
     total_tokens = sum(count_tokens(message["content"]) for message in conversation_history)
     print(f"Total tokens before removal: {total_tokens}")
@@ -46,7 +54,7 @@ while True:
             removed_message = conversation_history.pop(1)
             total_tokens -= count_tokens(removed_message["content"])
             # print total tokens used after removing the oldest message
-        
+
         else:
             break
         print(f"Total tokens after removal: {total_tokens}")
@@ -72,4 +80,3 @@ while True:
             sys.stdout.flush()
     # new line after the assistant's response
     print()
-
