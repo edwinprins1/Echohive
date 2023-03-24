@@ -1,5 +1,5 @@
-import openai
 import sys
+import openai
 import tiktoken
 import gradio as gr
 
