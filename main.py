@@ -1,3 +1,4 @@
+import os
 import openai
 import sys
 import tiktoken
@@ -5,7 +6,7 @@ import tiktoken
 # pip install openai tiktoken
 
 # define your api key in your user environment variables. or here in the code
-# openai.api_key = "YOUR_API_KEY"
+openai.api_key = os.getenv("OPENAI_API_KEY")
 
 
 # Define the function to count tokens
