@@ -1,0 +1,9 @@
+openai
+tiktoken
+streamlit
+gradio
+fastapi
+uvicorn
+aiofiles
+Jinja2
+python-multipart
